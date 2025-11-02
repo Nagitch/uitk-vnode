@@ -6,8 +6,20 @@ Runtime UI Virtual DOM for Unity (Design Draft)
 > **Target:** Unity 2022+ / UI Toolkit (runtime)  
 > **Scope:** Design specification for a system that separates logical UI (Virtual DOM) from rendering layers such as VFX Graph, shaders, or uGUI.
 
-This document defines the design of a runtime Virtual DOM system for Unity that uses **UI Toolkit as a layout and event layer**, while delegating **visual rendering** to separate systems (VFX Graph, Shader Graph, etc.).  
+This document defines the design of a runtime Virtual DOM system for Unity that uses **UI Toolkit as a layout and event layer**, while delegating **visual rendering** to separate systems (VFX Graph, Shader Graph, etc.).
 The goal is to make the logical UI structure reusable, data-driven, and easily synchronized with visual effects.
+
+---
+
+## Installation (Unity Package Manager)
+
+1. Open **Window > Package Manager**
+2. Click **+** → **Add package from git URL…**
+3. Paste this URL:
+
+   ```text
+   https://github.com/Nagitch/uitk-vnode.git?path=Packages/com.nagitch.uitk-vnode
+   ```
 
 ---
 
