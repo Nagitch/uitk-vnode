@@ -1,0 +1,14 @@
+{
+  "name": "com.nagitch.uitk-vnode",
+  "displayName": "UI Toolkit VNode",
+  "version": "0.1.0",
+  "unity": "2022.3",
+  "description": "Virtual DOM / VNode style framework built on Unity UI Toolkit, with UI-to-VFX bridge.",
+  "author": {
+    "name": "Nagitch",
+    "url": "https://github.com/Nagitch"
+  },
+  "dependencies": {
+    "com.unity.ui": "1.0.0"
+  }
+}

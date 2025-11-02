@@ -1,0 +1,7 @@
+{
+  "name": "UITKVNode",
+  "rootNamespace": "RuntimeUIVDOM",
+  "references": [],
+  "includePlatforms": [],
+  "autoReferenced": true
+}
