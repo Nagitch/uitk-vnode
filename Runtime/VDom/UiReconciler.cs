@@ -51,6 +51,19 @@ namespace RuntimeUIVDOM.VDom
                 {
                     childElement = VNodeFactory.Create(childNode);
                     parentElement.Insert(i, childElement);
+                    existingChildren[childNode.Id] = childElement;
+                }
+                else if (!VNodeFactory.IsElementCompatible(childNode, childElement))
+                {
+                    int currentIndex = parentElement.IndexOf(childElement);
+                    if (currentIndex >= 0)
+                    {
+                        parentElement.RemoveAt(currentIndex);
+                    }
+
+                    childElement = VNodeFactory.Create(childNode);
+                    parentElement.Insert(i, childElement);
+                    existingChildren[childNode.Id] = childElement;
                 }
                 else
                 {

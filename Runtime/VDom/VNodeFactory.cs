@@ -15,17 +15,20 @@ namespace RuntimeUIVDOM.VDom
         {
             if (node == null) throw new ArgumentNullException(nameof(node));
 
-            VisualElement element = node.Type switch
-            {
-                "label" => new Label(),
-                "button" => new Button(),
-                "image" => new Image(),
-                _ => new VisualElement(),
-            };
+            VisualElement element = (VisualElement)Activator.CreateInstance(GetElementType(node.Type))!;
 
             element.name = node.Id;
             ApplyProps(node, element);
             return element;
+        }
+
+        public static bool IsElementCompatible(VNode node, VisualElement element)
+        {
+            if (node == null) throw new ArgumentNullException(nameof(node));
+            if (element == null) throw new ArgumentNullException(nameof(element));
+
+            var expectedType = GetElementType(node.Type);
+            return element.GetType() == expectedType;
         }
 
         public static void ApplyProps(VNode node, VisualElement element)
@@ -98,6 +101,18 @@ namespace RuntimeUIVDOM.VDom
             {
                 element.AddToClassList(token);
             }
+        }
+
+        private static Type GetElementType(string? type)
+        {
+            return type switch
+            {
+                "label" => typeof(Label),
+                "button" => typeof(Button),
+                "image" => typeof(Image),
+                "container" => typeof(VisualElement),
+                _ => typeof(VisualElement),
+            };
         }
     }
 }
